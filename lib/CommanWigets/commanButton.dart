@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
-class commonButton extends StatelessWidget {
+class CommonButton extends StatelessWidget {
   final String text;
   final Color bgcolor;
   final VoidCallback onPressed;
   final double? h;
   final double? w;
 
-  commonButton(
-      {required this.text,
+  const CommonButton(
+      {super.key,
+      required this.text,
       required this.onPressed,
       this.bgcolor = const Color.fromARGB(255, 36, 145, 200),
       this.h = 50,
@@ -23,13 +22,13 @@ class commonButton extends StatelessWidget {
       width: w,
       child: ElevatedButton(
           onPressed: onPressed,
-          child: Text(text),
           style: ElevatedButton.styleFrom(
-            primary: bgcolor,
+            backgroundColor: bgcolor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-          )),
+          ),
+          child: Text(text)),
     );
   }
 }

@@ -1,13 +1,12 @@
 import 'package:demo2/CommanWigets/commanButton.dart';
-import 'package:demo2/home.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
 
 class Profile extends StatefulWidget {
-  late final String? data;
-  String name, email, phone;
+  final String? data;
+  final String name, email, phone;
 
-  Profile(
+  const Profile(
       {super.key,
       this.data,
       required this.email,
@@ -22,11 +21,11 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Profile Page')),
+      appBar: AppBar(title: const Text('Profile Page')),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               children: [
                 Card(
@@ -38,30 +37,30 @@ class _ProfileState extends State<Profile> {
                     padding: const EdgeInsets.all(18.0),
                     child: Column(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.person,
                           size: 98,
                           color: Color.fromARGB(255, 25, 121, 199),
                         ),
                         Text(
                           "Welcome ${widget.name}",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 30,
                             color: Color.fromARGB(255, 25, 121, 199),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         RowInfo(
                           label: 'Name:',
                           value: widget.name,
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         RowInfo(
                           label: 'Email:',
                           value: widget.email,
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         RowInfo(
                           label: 'Phone:',
                           value: widget.phone,
@@ -70,25 +69,26 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
-                commonButton(
+                const SizedBox(height: 20),
+                CommonButton(
                   text: "Logout",
                   onPressed: () {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: Text("Logout"),
-                          content: Text("Are you sure you want to logout?"),
+                          title: const Text("Logout"),
+                          content:
+                              const Text("Are you sure you want to logout?"),
                           actions: [
                             TextButton(
-                              child: Text("Cancel"),
+                              child: const Text("Cancel"),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
                             ),
                             TextButton(
-                              child: Text('Logout'),
+                              child: const Text('Logout'),
                               onPressed: () {
                                 Navigator.push(
                                   context,
@@ -118,6 +118,7 @@ class RowInfo extends StatelessWidget {
   final String value;
 
   const RowInfo({
+    super.key,
     required this.label,
     required this.value,
   });
@@ -128,12 +129,12 @@ class RowInfo extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
         ),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         Text(
           value,
-          style: TextStyle(fontSize: 26),
+          style: const TextStyle(fontSize: 26),
         ),
       ],
     );

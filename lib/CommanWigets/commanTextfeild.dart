@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
-class commantextinputfeild extends StatelessWidget {
+class Commantextinputfeild extends StatelessWidget {
   final dynamic prefixIcon;
   final dynamic suffixIcon;
 
-  String? hintText, initialValue = '', errorText, label;
+  final String? hintText, initialValue = '', errorText, label;
 
   final Color? iconColor;
   final bool obscureText;
@@ -17,12 +15,12 @@ class commantextinputfeild extends StatelessWidget {
   final double? borderradius;
   final double? verticalPadding;
   final int? maxLength;
-  dynamic validateFunction;
+  final dynamic validateFunction;
   final Color? borderColor, focusColor, labelColor, hintColor;
   final Color? loaderColor;
-  dynamic onSaved;
+  final dynamic onSaved;
   final String? obscuringCharacter;
-  dynamic onFieldSubmitted;
+  final dynamic onFieldSubmitted;
   final Color? filledColor;
   final TextEditingController? controller;
   final ValueChanged<String>? onChanged;
@@ -33,12 +31,13 @@ class commantextinputfeild extends StatelessWidget {
   final double? height;
   final TextCapitalization? textCapitalization;
   final BoxConstraints? box;
-  TextInputType? keyboardType;
-  List? inputFormatters;
-  bool? enabled;
+  final TextInputType? keyboardType;
+  final List? inputFormatters;
+  final bool? enabled;
 
-  commantextinputfeild(
-      {this.label,
+  const Commantextinputfeild(
+      {super.key,
+      this.label,
       this.errorText,
       this.prefixIcon,
       this.suffixIcon,
@@ -76,11 +75,13 @@ class commantextinputfeild extends StatelessWidget {
       this.keyboardType,
       this.inputFormatters,
       this.enabled,
-      Future<void> Function()? onTap});
+      Future<void> Function()? onTap,
+      this.onSaved,
+      this.onFieldSubmitted});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: height,
       child: TextFormField(
         obscureText: obscureText,
@@ -100,7 +101,7 @@ class commantextinputfeild extends StatelessWidget {
           prefixIconConstraints: box,
         ),
         keyboardType: keyboardType,
-        inputFormatters: [],
+        inputFormatters: const [],
       ),
     );
   }

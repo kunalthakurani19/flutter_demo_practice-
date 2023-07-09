@@ -4,7 +4,7 @@ import 'package:demo2/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Start());
+  runApp(const Start());
 }
 
 class Start extends StatefulWidget {
@@ -21,10 +21,10 @@ class _StartState extends State<Start> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Welcome to the App',
           ),
-          backgroundColor: Color.fromARGB(255, 47, 175, 243),
+          backgroundColor: const Color.fromARGB(255, 47, 175, 243),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -33,7 +33,7 @@ class _StartState extends State<Start> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Image.asset(
@@ -41,7 +41,7 @@ class _StartState extends State<Start> {
                   width: 200,
                   height: 100,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 const Text(
@@ -74,13 +74,13 @@ class _StartState extends State<Start> {
                           //     );
                           //   },
                           // ),
-                          commonButton(
+                          CommonButton(
                             text: "Login",
                             onPressed: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Login()),
+                                    builder: (context) => const Login()),
                               );
                             },
                           )),
@@ -104,13 +104,13 @@ class _StartState extends State<Start> {
                           //     );
                           //   },
                           // ),
-                          commonButton(
+                          CommonButton(
                             text: "Signup",
                             onPressed: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Signup()),
+                                    builder: (context) => const Signup()),
                               );
                             },
                           )),

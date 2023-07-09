@@ -36,11 +36,8 @@ class _LoginState extends State<Login> {
     // Validate the form fields
     if (_formKey.currentState!.validate()) {
       // Form fields are valid, perform login action
-      print("Ok");
       navigateTotheNextPage(context, emailcontroller.text);
-    } else {
-      print("error");
-    }
+    } else {}
   }
 
   bool _isObscure = true;
@@ -51,11 +48,11 @@ class _LoginState extends State<Login> {
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () => Navigator.pop(context),
           ),
-          title: Text('Welcome to Login Screen'),
-          backgroundColor: Color.fromARGB(255, 47, 175, 243),
+          title: const Text('Welcome to Login Screen'),
+          backgroundColor: const Color.fromARGB(255, 47, 175, 243),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -65,24 +62,24 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  Text(
+                  const Text(
                     'Login',
                     style: TextStyle(
                         fontSize: 35,
                         color: Color.fromARGB(255, 36, 145, 200),
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Form(
                       key: _formKey,
                       child: Column(
                         children: [
-                          commantextinputfeild(
+                          Commantextinputfeild(
                             label: "Email",
                             hintText: "Enter Email",
                             controller: emailcontroller,
@@ -98,18 +95,18 @@ class _LoginState extends State<Login> {
                               }
                               return null;
                             },
-                            prefixIcon: Icon(Icons.email),
+                            prefixIcon: const Icon(Icons.email),
                             borderradius: 20,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
-                          commantextinputfeild(
+                          Commantextinputfeild(
                               borderradius: 20,
                               obscureText: _isObscure,
                               label: "Enter Password",
                               hintText: "Enter Your Password",
-                              prefixIcon: Icon(Icons.password),
+                              prefixIcon: const Icon(Icons.password),
                               validateFunction: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "Please Enter Password";
@@ -133,7 +130,7 @@ class _LoginState extends State<Login> {
                                   });
                                 },
                               )),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Builder(
@@ -142,7 +139,8 @@ class _LoginState extends State<Login> {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) => forget()));
+                                              builder: (context) =>
+                                                  const Forget()));
                                     },
                                     child: const Text('forget password'),
                                   )),
@@ -152,20 +150,21 @@ class _LoginState extends State<Login> {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) => Signup()));
+                                              builder: (context) =>
+                                                  const Signup()));
                                     },
                                     child: const Text('Create an Account'),
                                   )),
-                          commonButton(
+                          CommonButton(
                             text: "Login",
                             onPressed: () {
                               _login();
                             },
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
-                          commonButton(
+                          CommonButton(
                             text: "Back",
                             onPressed: () {
                               Navigator.pop(context);

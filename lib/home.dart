@@ -1,20 +1,17 @@
 import 'package:demo2/CommanWigets/commanButton.dart';
 import 'package:demo2/CommanWigets/commanTextfeild.dart';
-import 'package:demo2/main.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
-class home extends StatefulWidget {
+class Home extends StatefulWidget {
   final String data;
 
-  home({required this.data});
+  const Home({super.key, required this.data});
 
   @override
-  State<home> createState() => _homeState();
+  State<Home> createState() => _HomeState();
 }
 
-class _homeState extends State<home> {
+class _HomeState extends State<Home> {
   List<String> items = [];
   TextEditingController textEditingController = TextEditingController();
 
@@ -30,8 +27,8 @@ class _homeState extends State<home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome ' + widget.data),
-        backgroundColor: Color.fromARGB(255, 47, 175, 243),
+        title: Text('Welcome ${widget.data}'),
+        backgroundColor: const Color.fromARGB(255, 47, 175, 243),
       ),
       body: Padding(
         padding: const EdgeInsets.all(18.0),
@@ -41,25 +38,25 @@ class _homeState extends State<home> {
             child: Column(
               children: [
                 Text(
-                  "Welcome " + widget.data,
-                  style: TextStyle(
+                  "Welcome ${widget.data}",
+                  style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(255, 36, 145, 200),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                commantextinputfeild(
+                Commantextinputfeild(
                   borderradius: 20,
                   controller: textEditingController,
                   hintText: "Enter Anything You Want",
                   label: "Enter the Text",
-                  prefixIcon: Icon(Icons.text_format),
+                  prefixIcon: const Icon(Icons.text_format),
                 ),
-                SizedBox(height: 20),
-                commonButton(
+                const SizedBox(height: 20),
+                CommonButton(
                   text: "Summit",
                   onPressed: addItemToList,
                 ),
